@@ -1,0 +1,23 @@
+image:
+  repository: bitnami/nginx
+  tag: 1.25.3-debian-11-r19
+
+service:
+  type: ClusterIP
+  ports:
+    http: 80
+
+replicaCount: 1
+
+containerPorts:
+  http: 8080
+
+livenessProbe:
+  enabled: true
+  path: /
+  port: http
+
+readinessProbe:
+  enabled: true
+  path: /
+  port: http
