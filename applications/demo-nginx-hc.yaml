@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-nginx-hc
+  name: arp-nginx-hc
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -14,11 +14,11 @@ spec:
       releaseName: nginx-hc
       valueFiles:
       - $values/manifests/nginx-hc/values.yaml
-  - repoURL: https://github.com/slim-sandbox/argocd-demo.git
+  - repoURL: https://github.com/slim-sandbox/argocd-arp.git
     targetRevision: HEAD
     ref: values
   destination:
-    namespace: demo
+    namespace: arp
     server: "https://kubernetes.default.svc"
   syncPolicy:
     syncOptions:
