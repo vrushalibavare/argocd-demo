@@ -1,7 +1,7 @@
 commonLabels:
   label-for: "vrush-nginx-hc-demo"
 
-  replicaCount: 3
+replicaCount: 3
 
 service:
   type: ClusterIP
