@@ -1,5 +1,5 @@
 commonLabels:
-  label-for: vrush-nginx-hc-demo
+  label-for: "vrush-nginx-hc-demo"
 
   replicaCount: 3
 
