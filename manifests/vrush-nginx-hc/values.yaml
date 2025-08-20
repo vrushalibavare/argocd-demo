@@ -1,0 +1,17 @@
+commonLabels:
+  label-for: vrush-nginx-hc-demo
+
+  replicaCount: 3
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  hostname: vrush-nginx.sctp-sandbox.com
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/hostname: vrush-nginx.sctp-sandbox.com
+  tls: true
