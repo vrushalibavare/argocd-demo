@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vrush-guestbook-app
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/vrushalibavare/vrush-k8s-manifests.git
+    targetRevision: HEAD
+    path: vrush-guestbook-app
+  destination:
+    namespace: vrush-ns
+    server: "https://kubernetes.default.svc"
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
